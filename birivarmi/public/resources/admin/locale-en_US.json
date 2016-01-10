@@ -21,15 +21,21 @@
 	 "admin.menu.settings.categories.questionmark.message_1.0": " Add, edit or delete the categories or subcategories in which users can post listings.",
      "admin.menu.settings.categories.questionmark.message_1.1": " Reorder sections by dragging and dropping, or nest a subcategory in an expanded category.",
      "admin.menu.settings.categories.questionmark.message_1.2": " Be careful: If you delete a category, all listings associated will also be deleted!",
+     "admin.menu.settings.categories.newCategory" : "New Category, Edit Me!",
  	 "admin.menu.statistics": "Statistics",
 	 "admin.menu.users": "Users",
+	 "category" : "Category",
   	 "directives.language-select.Language": "Language",
   	 "error" : "Error",
+  	 "error.errorMessage" : "Error Message : ",
   	 "error.invalidMailOrPassword" : "Invalid Mail or Password!",
   	 "error.internalServerError" : "Internal Server Error",
+  	 "error.notFound" : "not found.",
+  	 "error.notInserted" : "Not inserted.",
   	 "general.email"      : "Email",
   	 "general.logout" : "Exit",
   	 "general.password" : "Password",
   	 "general.login" : "Login",
-  	 "general.forgotPassword" : "Forgot Password!"
+  	 "general.forgotPassword" : "Forgot Password!",
+  	 "success.successfullyInserted" : "Successfully inserted."
 }

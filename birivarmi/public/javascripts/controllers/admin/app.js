@@ -25,7 +25,8 @@ angular
       'pascalprecht.translate',// angular-translate
       'tmh.dynamicLocale',// angular-dynamic-locale
       'chart.js',
-      'ngSanitize'
+      'ngSanitize',
+      'ui.tree'
     ]).constant('DEBUG_MODE', /*DEBUG_MODE*/true/*DEBUG_MODE*/)
     .constant('VERSION_TAG', /*VERSION_TAG_START*/new Date().getTime()/*VERSION_TAG_END*/)
     .constant('LOCALES', {
