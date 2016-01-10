@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+.card-category{
+    background-color: #f3f3f3;
+    border: solid 1px #ddd;
+    padding: 5px 5px 5px 5px;
+    border-radius: 4px;
+    position: relative;
+}
+.card-category .category_row{
+    height: 26px;
+    padding-left: 87px;
+}
+.ico-droppable {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    border-right: solid 1px #ddd;
+    width: 34px;
+    height: 36px;
+    margin-left: 2px;
+    cursor: move;
+}
+.ico-childrens {
+    position: absolute;
+    left: 36px;
+    top: 1px;
+    border-right: solid 1px #ddd;
+    width: 38px;
+    height: 36px;
+    margin-left: 2px;
+}
+.ico-childrens .toggle {
+    width: 10px;
+    height: 10px;
+    display: block;
+    float: left;
+    text-indent: -99999px;
+    padding: 5px;
+    margin-left: 7px;
+    margin-top: 7px;
+}
+.toggle {
+    cursor: pointer;
+}
+.status-collapsed {
+    background-position: -147px -343px;
+}
+.list-categories .name-cat, .list-fields .name-edit-cfield {
+    padding-right: 300px;
+    font-size: 15px;
+    line-height: 26px;
+    color: #616161;
+}
+.actions-cat, .actions-edit-cfield {
+    float: right;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+div.disabled .category_row, .category_li .disabled{
+	    background-color: #ffe8e8;
+}

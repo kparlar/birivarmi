@@ -1,0 +1,31 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET    /                          controllers.Application.index()
+GET    /home					  controllers.Application.home()
+GET	   /admin/login               controllers.Application.adminLogin()
+POST   /admin/login               controllers.Application.authenticateAdmin()
+GET    /admin/home                controllers.Application.adminHome()
+POST   /admin/signup              controllers.Application.signup()
+GET    /admin/posts               controllers.Application.post()
+
+#GET     /welcome					controllers.Application.welcome(siteName:String)
+
+# Admin Pages
+#GET     /admin/login                controllers.Application.adminLogin()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /public/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+# Client Routes
+GET		/bower_components/*file  	controllers.Assets.at(path="/public/bower_components", file)
+GET		/images/*file				controllers.Assets.at(path="/public/images", file)
+GET		/javascripts/*file			controllers.Assets.at(path="/public/javascripts", file)
+GET		/stylesheets/*file			controllers.Assets.at(path="/public/stylesheets", file)
+GET		/views/*file    			controllers.Assets.at(path="/public/views", file)
+GET		/views/admin/*file    	    controllers.Assets.at(path="/public/views/admin", file)
+GET		/resources/*file    	    controllers.Assets.at(path="/public/resources", file)
+
+

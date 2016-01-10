@@ -1,0 +1,31 @@
+<div class="card">
+	 <div class="card-title" ng-show="{{showtitle}}">
+	 	<div class="row">
+	 		<div class="col-lg-8">
+	 		<h3>{{title1}}</h3>
+	 		</div>
+	 		<div class="col-lg-4" ng-show="{{showselection}}">
+	 			<form name="myForm">
+	 		 		<select  ng-model="selectedchart" ng-change="selectedItemChanged()">
+	 		 			 <option ng-repeat="selection in selections" value="{{selection.id}}">{{selection.value}}</option>
+    				</select>
+          
+             </form>
+	 		</div>
+	 	</div>
+	 </div>
+	 <div class="card-content">
+	 		selected.id : {{selectedchart}}
+	 		
+	 		<card-chart ng-repeat="cardobject in cardobjects" ng-if="cardobject.showchart"
+	 		header="{{cardobject.title2}}"
+	 		subheader="{{cardobject.title3}}"
+	 		footerlink="{{cardobject.footerlink}}"
+        	footerlinktitle="{{cardobject.footerlinktitle}}"
+	 		labels="cardobject.labels"
+        	series="cardobject.series"
+        	data="cardobject.data"></card-chart>
+	
+        	
+	 </div>
+</div>

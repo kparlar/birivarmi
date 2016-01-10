@@ -1,0 +1,23 @@
+<div class="card">
+	 <div class="card-title" ng-show="{{showtitle}}">
+	 	<div class="row">
+	 		<div class="col-lg-8">
+	 		<h3>{{title1}}</h3>
+	 		</div>
+	 		<div class="col-lg-4" ng-show="{{showselection}}">
+	 		 <select  ng-model="selected" ng-options="selection.value for selection in selections" >
+             </select>
+	 		</div>
+	 	</div>
+	 </div>
+	 <div class="card-content">
+	 	<card-chart 
+	 		header="{{title2}}"
+	 		subheader="{{title3}}"
+	 		footerlink="{{footerlink}}"
+        	footerlinktitle="{{footerlinktitle}}"
+	 		labels="labels"
+        	series="series"
+        	data="data"></card-chart>
+	 </div>
+</div>

@@ -1,0 +1,66 @@
+<!-- Page Heading -->
+<div class="row">
+	    	<div class="breadcrumb">  
+	    	<div class="page-header">
+	    		<div class="pull-left">	
+	    			<H3>{{"admin.menu.settings.categories" | translate}}</H3>
+	    		</div>	
+	    		 <div class="pull-right">
+	    		 	<button class="btn btn-success btn-lg">
+          				<span class="glyphicon glyphicon-plus"></span> 
+       				 </button>
+	          		 <button  class="btn btn-info btn-lg" ng-click="questionMarkAlertAction()">
+         				 <span class="glyphicon glyphicon-question-sign"></span>
+        			</button>
+	    		 </div>
+	    	</div>   
+	    	     
+		 	</div>
+		 	
+		 	<card-draggable id="item1" title="koray" content="Koray Pelin Parlar"></card-draggable>
+		 	<br><br>
+		 	<card-droppable class="bin bin-left" drop="handleDrop()">
+		 	</card-droppable>
+		 	
+		 	<card-droppable class="bin" drop="handleDrop()">
+		 	</card-droppable>
+		<!-- <div class="bin bin-left" droppable drop="leftDrop()">
+    		
+  		</div>
+ 		 <div class="bin" droppable drop="rightDrop()"></div>	  -->	
+		<br><br><br> 	
+		 <br><br><br> 
+		 <br><br><br> 
+		 <br><br><br> 	
+       <card-categories categories='tasks'></card-categories>
+       <br><br><br><br><br><br><br>
+       
+         <draggable  id="draggable-1" group="content">This is my content, with simple template. I don't revert.</draggable>
+
+    <draggable options="{addClasses: false,cursor: 'move',revert: true}" id="draggable-2" group="content" placeholder="true">Draggable 2's <span class="text-info">content here</span>, same directive using an "Alternate" template.</draggable>
+
+    <draggable options="{opacity: .5,revert: true}" placeholder="true">Draggable 3's content!!
+      <ul>
+        <li>I'm not grouped with the others</li>
+        <li>have no ID</li>
+        <li>and use the default template</li>
+      </ul>
+    </draggable>
+
+    <div class="read-out">
+      <span class="text-info"><strong>Draggable ID</strong></span>: {{obj.id}}
+      <br>
+      <br>
+      <span class="text-info"><strong>Content</strong></span>: <span ng-bind-html="obj.content"></span>
+      <br>
+      <br>
+      <span class="text-info"><strong>Actual Content</strong></span>: {{obj.content}}
+      <br>
+      <br>
+    </div>
+  </div>
+      
+    </div>
+<!-- /.row -->
+
+

@@ -1,0 +1,26 @@
+<li>
+<div class="card-category {{member.enableDisableCssElementText}}" id="{{member.id}}" name="{{member.id}}">
+     <div class="category_row">
+	         <div class="ico-droppable">
+	         	<div class="glyphicon glyphicon-move fa-2x"></div>
+	         </div>
+	         <div class="ico-childrens glyphicon" ng-click="openCloseCardCategory()" ng-class="{'glyphicon-chevron-down': member.isOpen, 'glyphicon-chevron-right': !member.isOpen}">
+	             <span class="toggle status-collapsed ">+</span>  
+	         </div>
+	         <div class="name-cat" id="quick_edit_1">
+	             <span class="name">{{member.title}}</span>            
+	         </div>
+	         <div class="actions-cat">
+	             <a onclick="show_iframe('content_list_1','1');">Edit</a>
+	       <a ng-click="enableDisableCardCategory()" id="{{member.id}}" name="{{member.id}}">{{member.enableDisableText}}</a>
+	       <a onclick="">Delete</a>
+	         </div>
+     </div>
+     <div class="edit content_list_1">
+
+	</div>
+		  
+</div>
+<card-droppable drop="handleDrop()"></card-droppable>
+
+</li>

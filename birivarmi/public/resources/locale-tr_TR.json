@@ -1,0 +1,15 @@
+{
+  "application.title": "Birivarmi.com",
+  "admin.login.backTo" : "Geri Dön",
+  "admin.login.text.1" : "İkinci El Siteniz!",
+  "directives.language-select.Language": "Dil",
+  "error" : "Hata",
+  "error.invalidMailOrPassword" : "Geçersiz mail adresi veya şifre!",
+  "error.internalServerError" : "Sunucu Hatası",
+  "general.email"      : "Email",
+  "general.logout" : "Çıkış",
+  "general.password" : "Şifre",
+  "general.login" : "Giriş",
+  "general.forgotPassword" : "Şifremi Unuttum!"
+  
+}

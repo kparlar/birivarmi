@@ -1,0 +1,302 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link ng-if="authenticated" href="../../stylesheets/admin/sb-admin.css" rel="stylesheet">
+	<link rel="stylesheet" href="../../bower_components/angular-chart.js/dist/angular-chart.css">
+	
+    <!-- Custom Fonts -->
+    <link ng-if="authenticated" href="../../stylesheets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+ 	<link rel="stylesheet" href="../../stylesheets/admin/main.css">
+  	<link rel="stylesheet" href="../../stylesheets/admin/card.css">
+  	<link rel="stylesheet" href="../../stylesheets/admin/cards/card_category.css">
+  	<link rel="stylesheet" href="../../stylesheets/admin/cards/card_draggable.css">
+  	<link rel="stylesheet" href="../../stylesheets/admin/drag.css">
+  
+  <base href="/" />
+</head>
+<body ng-app="birivarmiAdminApp">
+<div id="wrapper">
+<div ng-if="!authenticated">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-left" href="@routes.Application.index()"> <p><span class="glyphicon glyphicon-arrow-left"></span> {{"admin.login.backTo" | translate}} {{"application.title" | translate}}</a>
+	        </div>
+	      </div>
+	    </nav>
+		
+</div>
+   <div ng-if="authenticated">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/home">{{"application.title" | translate}}</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{globals.currentUser.name}} {{globals.currentUser.surname}}<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="/controlBoard"><i class="fa fa-fw fa-dashboard"></i> {{"admin.menu.controlpanel" | translate}}</a>
+                    </li>
+                    <li>
+                        <a href="charts.html"><i class="fa fa-fw fa-edit"></i> {{"admin.menu.ads" | translate}}</a>
+                    </li>
+                    <li>
+                        <a href="tables.html"><i class="fa fa-fw fa-desktop"></i> {{"admin.menu.appearance" | translate}}</a>
+                    </li>
+                    <li>
+                        <a href="forms.html"><i class="fa fa-fw fa-bar-chart-o"></i> {{"admin.menu.statistics" | translate}}</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-users"></i> {{"admin.menu.settings" | translate}}  <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="/settings/categories">{{"admin.menu.settings.categories" | translate}}</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-file"></i> {{"admin.menu.pages" | translate}}</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-users"></i> {{"admin.menu.users" | translate}} <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="blank-page.html"><i class="fa fa-fw fa-table"></i> {{"admin.menu.others" | translate}}</a>
+                    </li>                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+		  
+		
+        
+
+    </div>
+        <!-- /#wrapper -->
+		<div class="jumbotron">
+			<div class="container">
+			  <div ng-controller="AlertsCtrl">
+			    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{ alert.msg }}</alert>
+			  </div>
+			  <div ng-view=""></div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+	  <div class="container">
+	    <p>{{$scope.date}} (c){{"application.title" | translate}}</p>
+	  </div>
+	</div>
+
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>  
+   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+    
+<!--     <script src="http://code.angularjs.org/1.2.1/angular-sanitize.min.js"></script> -->
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="../../bower_components/jquery/dist/jquery.js"></script>
+<script src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="../../bower_components/angular/angular.js"></script>
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../../bower_components/angular-animate/angular-animate.js"></script>
+<script src="../../bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="../../bower_components/angular-resource/angular-resource.js"></script>
+<script src="../../bower_components/angular-route/angular-route.js"></script>
+<script src="../../bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="../../bower_components/angular-touch/angular-touch.js"></script>
+<script src="../../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="../../bower_components/angular-translate/angular-translate.js"></script>
+<script src="../../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+<script src="../../bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+<script src="../../bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+<script src="../../bower_components/angular-translate-handler-log/angular-translate-handler-log.js"></script>
+<script src="../../bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+<script src="../../bower_components/Chart.js/Chart.js"></script>
+<script src="../../bower_components/angular-chart.js/dist/angular-chart.js"></script>
+
+
+
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<!-- Controllers -->
+<script src="../../javascripts/controllers/admin/app.js"></script>
+<script src="../../javascripts/controllers/admin/signup.js"></script>
+<script src="../../javascripts/controllers/admin/alerts.js"></script>
+<script src="../../javascripts/controllers/admin/menu.js"></script>
+<script src="../../javascripts/controllers/admin/login.js"></script>
+<script src="../../javascripts/controllers/admin/authenticate.js"></script>
+<script src="../../javascripts/controllers/admin/home.js"></script>
+<script src="../../javascripts/controllers/admin/controlBoard.js"></script>
+<script src="../../javascripts/controllers/admin/card.js"></script>
+<script src="../../javascripts/controllers/admin/card_statistic.js"></script>
+<script src="../../javascripts/controllers/admin/card_chart.js"></script>
+<script src="../../javascripts/controllers/admin/card_statistics.js"></script>
+<script src="../../javascripts/controllers/admin/settings/categories.js"></script>
+<script src="../../javascripts/controllers/admin/cards/card_category.js"></script>
+<script src="../../javascripts/controllers/admin/cards/card_categories.js"></script>
+<script src="../../javascripts/controllers/admin/cards/card_member.js"></script>
+<script src="../../javascripts/controllers/admin/cards/card_draggable.js"></script>
+<script src="../../javascripts/controllers/admin/cards/card_droppable.js"></script>
+<script src="../../javascripts/controllers/admin/drag.js"></script>
+<!-- Services -->
+<script src="../../javascripts/services/admin/alerts.js"></script>
+<script src="../../javascripts/services/admin/user.js"></script>
+<script src="../../javascripts/services/admin/LocaleService.js"></script>
+
+<!-- Directives -->
+<script src="../../javascripts/directives/admin/LanguageSelectDirective.js"></script>
+<script src="../../javascripts/directives/admin/card.js"></script>
+<script src="../../javascripts/directives/admin/card_statistic.js"></script>
+<script src="../../javascripts/directives/admin/card_chart.js"></script>
+<script src="../../javascripts/directives/admin/card_statistics.js"></script>
+<script src="../../javascripts/directives/admin/cards/card_category.js"></script>
+<script src="../../javascripts/directives/admin/cards/card_categories.js"></script>
+<script src="../../javascripts/directives/admin/cards/card_member.js"></script>
+<script src="../../javascripts/directives/admin/cards/card_draggable.js"></script>
+<script src="../../javascripts/directives/admin/cards/card_droppable.js"></script>
+<script src="../../javascripts/directives/admin/cards/card_draggable2.js"></script>
+
+
+<!-- endbuild -->
+</body>
+</html>

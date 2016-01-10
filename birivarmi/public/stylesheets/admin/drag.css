@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+.cursor {
+  cursor: move;
+}
+
+.read-out {
+  margin-top: 30px;
+}
+
+.dragging {
+  border: 1px dashed #ccc;
+}

@@ -1,0 +1,115 @@
+#header {
+	background-color: #35C3D9;
+	width: 100%;
+	height: auto;
+	display: block;
+	position: relative;
+	margin-bottom: 15px;
+	padding-bottom: 25px
+}
+
+#header .wrapper {
+	position: relative
+}
+
+#header .ads_header {
+	width: 728px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px 0px 10px 0px
+}
+
+#header #logo {
+	color: #fff;
+	font-family: "Osclass";
+	border: none;
+	font-size: 2.7em;
+	line-height: 1.5em;
+	padding-top: 20px;
+	padding-bottom: 10px
+}
+
+#header #logo a {
+	font-size: 1.5em;
+	line-height: 0.8em;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff
+}
+
+#header .publish a {
+	background-color: #ce3d27;
+	background-color: #ce3d27;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ce3d27),
+		color-stop(100%, #a72915));
+	background-image: -webkit-linear-gradient(top, #ce3d27, #a72915);
+	background-image: -moz-linear-gradient(top, #ce3d27, #a72915);
+	background-image: -ms-linear-gradient(top, #ce3d27, #a72915);
+	background-image: -o-linear-gradient(top, #ce3d27, #a72915);
+	background-image: linear-gradient(top, #ce3d27, #a72915);
+	border: solid 1px #8d2a1b;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	display: inline-block;
+	vertical-align: middle;
+	color: #fff !important;
+	line-height: 43px;
+	text-decoration: none;
+	padding: 0 15px;
+	box-shadow: inset 0 1px 0 0 #e9988b;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3)
+}
+
+#header #logo span {
+	color: #fff;
+	font-family: "Osclass";
+	font-weight: 100;
+	text-decoration: none;
+	border: none;
+	font-size: 0.8em;
+	line-height: 1em;
+	display: block
+}
+
+#header .nav {
+	position: absolute;
+	right: 0;
+	top: 10px;
+	padding: 0;
+	margin: 0;
+	list-style: none
+}
+
+#header .nav li {
+	float: left;
+	position: relative
+}
+
+#header .nav li.search, #header .nav li.cat {
+	display: none
+}
+
+#header .nav li a, #header .nav li span {
+	color: white;
+	font-size: 0.875em
+}
+
+#header .nav li {
+	color: white
+}
+
+#header .nav li a {
+	margin-left: 10px
+}
+
+#header .nav li.publish {
+	clear: both;
+	float: right;
+	margin-top: 10px
+}

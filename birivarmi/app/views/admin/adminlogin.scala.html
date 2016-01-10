@@ -1,0 +1,74 @@
+@(message: String,
+loginForm: Form[views.formdata.LoginForm])
+@import helper._
+
+<html lang="UTF-8">
+    <head>
+        <title>@Messages("application.name")</title>
+        <!-- include all stylesheets -->
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.ico")">
+        
+        <!-- Bootstrap core CSS -->
+    	<link rel="stylesheet" href="@routes.Assets.versioned("bower_components/bootstrap/dist/css/bootstrap.min.css")" >
+    	<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/admin.css")">
+   	 </head>
+    <body>
+      
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-left" href="@routes.Application.index()">← @Messages("admin.login.backTo") @Messages("application.name")</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+        <div class="col-md-6" align="center">
+          <h2><img alt="@Messages("application.name")" src="@routes.Assets.versioned("images/logos/birivarmi.png")" height="150px"></h2>
+          <h2>@Messages("admin.login.text.1")</h2>
+        </div>
+        <div class="col-md-6">
+ 		  @if(loginForm.hasGlobalErrors) { 
+ 		      <p class="bg-danger">
+                   @loginForm.globalError.message
+               </p>
+           }
+        @form(routes.Application.authenticateAdmin){
+        	
+            <div class="form-group">
+              <input type="text" placeholder="@Messages("general.email")" class="form-control" id="@loginForm("email").id" name="@loginForm("email").name" value="@loginForm("email").value">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="@Messages("general.password")" class="form-control" id="@loginForm("password").id" name="@loginForm("password").name" >
+            </div>
+            <button type="submit" class="btn btn-primary">@Messages("general.forgotPassword")</button>
+            <button type="submit" class="btn btn-success">@Messages("general.signin")</button>
+        
+          }
+       </div>
+       </div>
+      </div>
+    </div>
+
+    <div class="container">
+     <hr>
+
+      <footer>
+        <p>&copy; 2015 @Messages("application.name")</p>
+      </footer>
+    </div> <!-- /container -->
+
+		
+    </body>
+</html>
+

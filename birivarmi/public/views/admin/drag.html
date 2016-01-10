@@ -1,0 +1,56 @@
+<html ng-app="dragTest">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="http://code.angularjs.org/1.2.1/angular.min.js" type="text/javascript"></script>
+  <script src="http://code.angularjs.org/1.2.1/angular-sanitize.min.js"></script>
+  <script src="../../javascripts/controllers/admin/drag.js"></script>
+  <style>
+  	.cursor {
+  cursor: move;
+}
+
+.read-out {
+  margin-top: 30px;
+}
+
+.dragging {
+  border: 1px dashed #ccc;
+}
+  
+  </style>
+</head>
+
+<body class="container">
+
+  <div ng-controller="dragCtrlr">
+
+    <draggable  id="draggable-1" group="content">This is my content, with simple template. I don't revert.</draggable>
+
+    <draggable options="{addClasses: false,cursor: 'move',revert: true}" id="draggable-2" group="content" placeholder="true">Draggable 2's <span class="text-info">content here</span>, same directive using an "Alternate" template.</draggable>
+
+    <draggable options="{opacity: .5,revert: true}" placeholder="true">Draggable 3's content!!
+      <ul>
+        <li>I'm not grouped with the others</li>
+        <li>have no ID</li>
+        <li>and use the default template</li>
+      </ul>
+    </draggable>
+
+    <div class="read-out">
+      <span class="text-info"><strong>Draggable ID</strong></span>: {{obj.id}}
+      <br>
+      <br>
+      <span class="text-info"><strong>Content</strong></span>: <span ng-bind-html="obj.content"></span>
+      <br>
+      <br>
+      <span class="text-info"><strong>Actual Content</strong></span>: {{obj.content}}
+      <br>
+      <br>
+    </div>
+  </div>
+
+</body>
+
+</html>
