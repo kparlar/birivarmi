@@ -84,24 +84,29 @@ angular.module('birivarmiAdminApp')
 	       
 	       $scope.newItem = function (scope) {
 	    	   var name = $translate.instant('admin.menu.settings.categories.newCategory');
-	    	   var response = BirivarmiService.createCategory(name, updaterId);
-	    	   if(response.success === true){
-	    		   var data = scope.data;
-			         data.push({
-			           id: response.id,
-				       title: name,
-				       enableDisableCssElementText: 'angular-ui-tree-handle',
-				       enableDisableText: $translate.instant('admin.menu.settings.categories.disabled'),
-				       isDisabled: false,
-				       nodrop: true, // An arbitrary property to check in custom template for nodrop-enabled
-				       nodes: []
-			         });
-			         var message = $translate.instant('success.successfullyInserted');
-					 alertService.add('success', message);
-	    	   }else{
-	    		   var message = response.message;
-					alertService.add('danger', message);
-	    	   } 
+	    	   var updaterId = 1;
+	    	   var promise = BirivarmiService.createCategory(name, updaterId);
+	    	   promise.then(function(response){
+	    		   if(response.success === true){
+		    		   var data = scope.data;
+				         data.push({
+				           id: response.id,
+					       title: name,
+					       enableDisableCssElementText: 'angular-ui-tree-handle',
+					       enableDisableText: $translate.instant('admin.menu.settings.categories.disabled'),
+					       isDisabled: false,
+					       nodrop: true, // An arbitrary property to check in custom template for nodrop-enabled
+					       nodes: []
+				         });
+				         var message = $translate.instant('success.successfullyInserted');
+						 alertService.add('success', message);
+		    	   }else{
+		    		   var message = response.message;
+						alertService.add('danger', message);
+		    	   }
+	    		   
+	    	   });
+	    	 
 		       };
 
 	       $scope.collapseAll = function () {
@@ -111,82 +116,96 @@ angular.module('birivarmiAdminApp')
 	       $scope.expandAll = function () {
 	         $scope.$broadcast('expandAll');
 	       };
-
-	       $scope.data = [{
-	         'id': 1,
-	         'title': 'node1',
-	         'enableDisableCssElementText': 'angular-ui-tree-handle',
-	         'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
-	         'isDisabled': false,
-	         'nodes': [
-	           {
-	             'id': 11,
-	             'title': 'node1.1',
-	             'enableDisableCssElementText': 'angular-ui-tree-handle',
-	             'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
-	             'isDisabled': false,
-	             'nodes': [
-	               {
-	                 'id': 111,
-	                 'title': 'node1.1.1',
-	                 'enableDisableCssElementText': 'angular-ui-tree-handle',
-	                 'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
-	                 'isDisabled': false,
-	                 'nodes': []
-	               }
-	             ]
-	           },
-	           {
-	             'id': 12,
-	             'title': 'node1.2',
-	             'enableDisableCssElementText': 'angular-ui-tree-handle',
-	             'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
-	             'isDisabled': false,
-	             'nodes': []
-	           }
-	         ]
-	       }, {
-	         'id': 2,
-	         'title': 'node2',
-	         'enableDisableCssElementText': 'angular-ui-tree-handle',
-	         'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
-	         'isDisabled': false,
-	         'nodrop': true, // An arbitrary property to check in custom template for nodrop-enabled
-	         'nodes': [
-	           {
-	             'id': 21,
-	             'title': 'node2.1',
-	             'enableDisableCssElementText': 'angular-ui-tree-handle',
-	             'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
-	             'isDisabled': false,
-	             'nodes': []
-	           },
-	           {
-	             'id': 22,
-	             'title': 'node2.2',
-	             'enableDisableCssElementText': 'angular-ui-tree-handle',
-	             'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
-	             'isDisabled': false,
-	             'nodes': []
-	           }
-	         ]
-	       }, {
-	         'id': 3,
-	         'title': 'node3',
-	         'enableDisableCssElementText': 'angular-ui-tree-handle',
-	         'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
-	         'isDisabled': false,
-	         'nodes': [
-	           {
-	             'id': 31,
-	             'title': 'node3.1',
-	             'enableDisableCssElementText': 'angular-ui-tree-handle',
-	             'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
-	             'isDisabled': false,
-	             'nodes': []
-	           }
-	         ]
-	       }];
+	       
+	       $scope.populateData = function (scope){
+	    	   var promise = BirivarmiService.getCategories();
+	    	   promise.then(function(response){
+	    		   if(response.success === true){
+	    			   $scope.data = response.data;				         
+		    	   }else{
+		    		   var message = response.message;
+					   alertService.add('danger', message);
+		    	   }
+	    	   });
+	    	 
+		       };
+		   $scope.populateData();
+	       
+//	       $scope.data = [{
+//	         'id': 1,
+//	         'title': 'node1',
+//	         'enableDisableCssElementText': 'angular-ui-tree-handle',
+//	         'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
+//	         'isDisabled': false,
+//	         'nodes': [
+//	           {
+//	             'id': 11,
+//	             'title': 'node1.1',
+//	             'enableDisableCssElementText': 'angular-ui-tree-handle',
+//	             'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
+//	             'isDisabled': false,
+//	             'nodes': [
+//	               {
+//	                 'id': 111,
+//	                 'title': 'node1.1.1',
+//	                 'enableDisableCssElementText': 'angular-ui-tree-handle',
+//	                 'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
+//	                 'isDisabled': false,
+//	                 'nodes': []
+//	               }
+//	             ]
+//	           },
+//	           {
+//	             'id': 12,
+//	             'title': 'node1.2',
+//	             'enableDisableCssElementText': 'angular-ui-tree-handle',
+//	             'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
+//	             'isDisabled': false,
+//	             'nodes': []
+//	           }
+//	         ]
+//	       }, {
+//	         'id': 2,
+//	         'title': 'node2',
+//	         'enableDisableCssElementText': 'angular-ui-tree-handle',
+//	         'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
+//	         'isDisabled': false,
+//	         'nodrop': true, // An arbitrary property to check in custom template for nodrop-enabled
+//	         'nodes': [
+//	           {
+//	             'id': 21,
+//	             'title': 'node2.1',
+//	             'enableDisableCssElementText': 'angular-ui-tree-handle',
+//	             'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
+//	             'isDisabled': false,
+//	             'nodes': []
+//	           },
+//	           {
+//	             'id': 22,
+//	             'title': 'node2.2',
+//	             'enableDisableCssElementText': 'angular-ui-tree-handle',
+//	             'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
+//	             'isDisabled': false,
+//	             'nodes': []
+//	           }
+//	         ]
+//	       }, {
+//	         'id': 3,
+//	         'title': 'node3',
+//	         'enableDisableCssElementText': 'angular-ui-tree-handle',
+//	         'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
+//	         'isDisabled': false,
+//	         'nodes': [
+//	           {
+//	             'id': 31,
+//	             'title': 'node3.1',
+//	             'enableDisableCssElementText': 'angular-ui-tree-handle',
+//	             'enableDisableText': $translate.instant('admin.menu.settings.categories.disabled'),
+//	             'isDisabled': false,
+//	             'nodes': []
+//	           }
+//	         ]
+//	       }];
 	    
 		  
 		  
