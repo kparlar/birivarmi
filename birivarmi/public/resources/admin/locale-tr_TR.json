@@ -25,18 +25,22 @@
  "admin.menu.statistics": "İstatistik",
  "admin.menu.users": "Kullanıcılar",  
  "category" : "Kategori",
+ "categories" : "Kategoriler",
  "directives.language-select.Language": "Dil",
  "error" : "Hata",
  "error.errorMessage" : "Hata Mesajı : ",
  "error.invalidMailOrPassword" : "Geçersiz mail adresi veya şifre!",
  "error.internalServerError" : "Sunucu Hatası",
  "error.notFound" : "bulunamadı.",
+ "error.notGet" : "alınamadı.", 
  "error.notInserted" : "Kayıt Edilemedi.", 
  "general.email"      : "Email",
  "general.logout" : "Çıkış",
  "general.password" : "Şifre",
  "general.login" : "Giriş",
  "general.forgotPassword" : "Şifremi Unuttum!",
+ "locale.en_US" : "İngilizce",
+ "locale.tr_TR" : "Türkçe",
  "success.successfullyInserted" : "Başarılı bir şekilde eklendi."
  
 }

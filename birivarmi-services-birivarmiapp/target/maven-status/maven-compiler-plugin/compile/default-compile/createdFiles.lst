@@ -1,0 +1,5 @@
+com\birivarmi\app\GreetingController.class
+com\birivarmi\dto\Greeting.class
+com\birivarmi\model\Customer.class
+com\birivarmi\BirivarmiServicesBirivarmiappApplication.class
+com\birivarmi\repository\CustomerRepository.class
